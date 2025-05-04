@@ -1,0 +1,72 @@
+.product-card { position: relative; overflow: hidden; border: none; }
+  .badge-save {
+    position: absolute; top: .75rem; left: .75rem;
+    background: #8B0000; color: #fff;
+    font-size: .85rem; padding: .25rem .5rem; border-radius: .25rem;
+  }
+  .badge-best {
+    position: absolute; top: .75rem; left: 50%;
+    transform: translateX(-50%);
+    background: #8B0000; color: #fff;
+    font-size: .85rem; padding: .25rem .75rem; border-radius: 1rem;
+  }
+  .icon-heart {
+    position: absolute; top: .75rem; right: .75rem;
+    color: #8B0000; font-size: 1.25rem; cursor: pointer;
+  }
+  .card-img-top {
+    height: 200px; object-fit: cover;
+  }
+  .card-body {
+    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .form-select-sm { font-size: .9rem; max-width: 100px; }
+  .rating { color: #FFC107; font-size: .9rem; }
+  .price { font-size: 1.25rem; font-weight: 600; color: #1a4d2e; }
+  .old-price { text-decoration: line-through; color: #888; margin-left: .5rem; }
+
+  /* base card styling */
+.card {
+    width: 100%;                     /* fill its column */
+    border: 1px solid #e2e2e2;       /* light neutral border */
+    border-radius: 0.75rem;          /* soft rounded corners */
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* hover “lift” effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* adjust the inner badge colors to match new border */
+  .badge-save {
+    background: #b02e0c; /* a warmer red */
+  }
+  .badge-best {
+    background: #b02e0c;
+  }
+  
+  /* soften the heart icon hover */
+  .icon-heart:hover {
+    color: #e3342f;      /* brighter red on hover */
+    transform: scale(1.1);
+  }
+  
+  /* ensure the image still covers its box */
+  .card-img-top {
+    max-height: 180px;
+    object-fit: cover;
+  }
+  
+  /* consistent button look */
+  .btn-success {
+    border-radius: 0.5rem;
+    font-weight: 600;
+  }
+  .card-body .btn-success {
+    align-self: center;
+  }
+  
+  

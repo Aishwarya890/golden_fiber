@@ -15,3 +15,37 @@ setInterval(showNextSlide, 3000);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  AOS.init();
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const carouselInners = document.querySelectorAll('.carousel-equal-heights .carousel-inner');
+
+    function updateItemsHeight() {
+      carouselInners.forEach(function (inner) {
+        const items = inner.querySelectorAll('.carousel-item');
+        let maxHeight = 0;
+
+        // Reset heights
+        items.forEach(function (item) {
+          item.style.height = 'auto';
+        });
+
+        // Calculate max height
+        items.forEach(function (item) {
+          const height = item.offsetHeight;
+          if (height > maxHeight) {
+            maxHeight = height;
+          }
+        });
+
+        // Set max height
+        items.forEach(function (item) {
+          item.style.height = maxHeight + 'px';
+        });
+      });
+    }
+
+    updateItemsHeight();
+    window.addEventListener('resize', updateItemsHeight);
+  });
+

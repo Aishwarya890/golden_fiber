@@ -6,41 +6,52 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding-top: 120px;
+    padding-top: 50px;
     background-color: #fff;
     color: #222;
     overflow-x: hidden;
     width: 100%;
   }
-  .navbar {
-    position: fixed;
-    top: 0;
-    background-color: white;
-    padding: 15px 0;
+  /* Logo hover animation */
+  .logo-animate:hover {
+    transform: scale(1.05);
+    transition: transform 0.4s ease-in-out;
   }
-  
-  .navbar .navbar-nav .nav-link {
-    color: #a33434 !important;
-    font-size: 18px;
-    font-weight: 500;
-    margin-right: 20px;
+
+  /* Smooth underline on hover */
+  .nav-hover {
+    position: relative;
+    transition: color 0.3s ease;
   }
-  
-  .navbar .navbar-nav .nav-link:hover {
-    color: #ffc107 !important;
+
+  .nav-hover::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #a50038;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
   }
-  
-  .navbar .navbar-brand {
-    font-size: 24px;
-    color: #ffffff !important;
-    font-weight: 600;
+
+  .nav-hover:hover::after {
+    width: 100%;
   }
-  
-  .logo-img {
-    width: 170px;
-    height: 70px;
-    margin-right: 10px;
-    object-fit: contain;
+
+  .nav-hover:hover {
+    color: #a50038;
+  }
+
+  /* Search bar subtle scale */
+  .search-animate input {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .search-animate input:focus {
+    transform: scale(1.03);
+    box-shadow: 0 0 5px #a50038;
   }
   
   /* Carousel Styles */
@@ -82,7 +93,6 @@ body {
     margin-bottom: 30px;
     text-align: center;
   }
-  
   .categories {
     display: flex;
     flex-wrap: wrap;
@@ -133,6 +143,154 @@ body {
     object-fit: contain;
     padding: 10px;
   }
+  
+  
+   
+    /* 1. Make the card a column-flex container */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. Force all .card-img-top to a uniform height & cover */
+.card-img-top {
+  height: 200px;           
+  object-fit: cover;
+}
+.product-img {
+  width: 100%;
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+}
+
+/* 3. Let the body grow to fill the remaining space */
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+/* ensure buttons/text don't push past bottom */
+.card-body .btn {
+  margin-top: auto;
+}
+ /* tighten carousel controls */
+  /* tighten and center the controls vertically */
+  #bestSellerCarousel .carousel-control-prev,
+  #bestSellerCarousel .carousel-control-next {
+    width: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #bestSellerCarousel .carousel-control-prev-icon,
+  #bestSellerCarousel .carousel-control-next-icon {
+    background-size: 1.5rem 1.5rem;
+    background-position: center;
+  }
+
+  /* card badges & icon */
+.product-card .badge-save {
+  position: absolute;
+  top: .75rem; left: .75rem;
+  background: #8B0000; color: #fff;
+  padding: .25rem .5rem;
+  font-size: .85rem;
+  border-radius: .25rem;
+}
+.product-card .badge-best {
+  position: absolute;
+  top: .75rem; right: 2.5rem;
+  background: #8B0000; color: #fff;
+  padding: .25rem .75rem;
+  font-size: .85rem;
+  border-radius: 1rem;
+}
+.icon-heart {
+  position: absolute;
+  top: .5rem; right: .75rem;
+  color: #8B0000; font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.carousel-equal-heights .carousel-item .card,
+.carousel-equal-heights .carousel-item .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-equal-heights .carousel-item .card-body {
+  flex-grow: 1;
+}
+
+
+/* rating stars */
+.rating { color: #FFC107; font-size: .9rem; }
+
+/* prices */
+.price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a4d2e;
+}
+.old-price {
+  margin-left: .5rem;
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* center the ADD button */
+.btn-success {
+  border-radius: .5rem;
+  
+  font-weight: 600;
+}
+.product-card-custom {
+  height: 350px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+
+
+ .hero-banner {
+  width: 100%;
+  background: #691b23; /* sky color */
+  overflow: hidden;
+}
+
+.banner-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;  /* so the bottoms line up */
+  padding: 1rem;          /* optional horizontal breathing room */
+  min-height: 200px;      /* adjust to your art’s height */
+}
+
+.banner-inner img {
+  max-height: 180px;      /* keep them uniform */
+  width: auto;
+  flex-shrink: 0;         /* prevents images from squishing */
+}
+
+/* Responsive tweaks */
+@media (max-width: 992px) {
+  .banner-inner img {
+    max-height: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-inner {
+    overflow-x: auto;     /* allow touch-scroll on phones */
+    gap: 1rem;
+  }
+  .banner-inner img {
+    max-height: 120px;
+  }
+}
+
   
 
 
@@ -220,6 +378,7 @@ body {
     padding: 0.6rem 2rem;
     margin-top: 1rem;
     transition: background-color 0.3s;
+    
   }
   .know-more-btn:hover {
     background-color: #e0cf9a;
@@ -738,8 +897,8 @@ button:hover {
 
 /* Footer */
 .footer {
-  background-color: #b34b4b;
-  color: #fdf8f8;
+  background-color: #fafafa;
+  color: #a50038;
   padding: 60px 10% 30px;
   position: relative;
 }
@@ -776,17 +935,17 @@ button:hover {
 
 .footer-column ul li a {
   text-decoration: none;
-  color: #fcf9f9;
+  color: #a50038;
   transition: 0.3s;
 }
 
 .footer-column ul li a:hover {
-  color: #f9efef;
+  color: #a50038;
 }
 
 .footer-contact p {
   margin: 10px 0;
-  color:  #f9efef;
+  color:  #a50038;
 }
 
 .footer-social {
@@ -796,7 +955,7 @@ button:hover {
 }
 
 .footer-social a {
-  background-color: #f0e8e8;
+  background-color: #ee90af;
   color: rgb(10, 9, 9);
   padding: 8px 10px;
   border-radius: 50%;
@@ -816,7 +975,7 @@ button:hover {
   margin-top: 40px;
   border-top: 1px solid #d1a7a7;
   padding-top: 20px;
-  color:  #f9efef;
+  color:  #a50038;
   font-size: 14px;
 }
 
